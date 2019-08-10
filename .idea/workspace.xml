@@ -2,17 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b6c450f-05cd-4206-87b4-63dc8142184b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/login.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Blog/Admin/BaseController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Blog/Admin/CategoryController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Blog/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Blog/PostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blog/posts/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/posts/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -129,11 +123,15 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Blog/Admin" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Program Files\OSPanel\domains\blog\app\Http\Controllers\Blog\Admin" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Program Files\OSPanel\domains\blog\app" />
       <recent name="C:\Program Files\OSPanel\domains\blog\app\Models" />
@@ -170,7 +168,7 @@
       <workItem from="1565045231980" duration="799000" />
       <workItem from="1565046168862" duration="333000" />
       <workItem from="1565350034029" duration="11548000" />
-      <workItem from="1565460277916" duration="2694000" />
+      <workItem from="1565460277916" duration="4349000" />
     </task>
     <servers />
   </component>
