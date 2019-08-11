@@ -18,15 +18,15 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($items as $item)
+                            @foreach($paginator as $item)
                                 <tr>
-                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $item->id -1}}</td>
                                     <td>
                                         <a href="{{ route('blog.admin.categories.edit', $item->id) }}">
                                             {{ $item->title }}
                                         </a>
                                     </td>
-                                    <td @if(in_array( $item->parent_id, [0,1])) style="" @endif>
+                                    <td @if(in_array( $item->parent_id, [0,1])) style="color: #cccc" @endif>
                                         {{ $item->parent_id }}
                                     </td>
                                 </tr>
@@ -37,5 +37,17 @@
                 </div>
             </div>
         </div>
+        @if($paginator->total() > $paginator->count())
+            <br>
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            {{ $paginator->links() }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endif
     </div>
 @endsection
