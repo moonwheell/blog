@@ -59,15 +59,27 @@ class CategoryController extends BaseController
     }
 
     /**
-     * Update the specified resource in storage.
+     * @param Request $request
+     * @param $id
      *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
      *
-     * @return \Illuminate\Http\Response
+     * @throws \Illuminate\Validation\ValidationException
+     *
      */
     public function update(Request $request, $id)
     {
+        $rules = [
+            'title' => 'required|min:5|max:200',
+            'slug' => 'max:200',
+            'description' => 'string|min:3|max:500',
+            'parent_id' => 'required|integer|exists:blog_categories,id',
+        ];
+
+        $validatedData = $this->validate($request, $rules);
+
+        dd($validatedData);
+
         $item = BlogCategory::find($id);
         if (!$item)
             return back()
