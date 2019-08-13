@@ -17,28 +17,28 @@
                         <div class="form-group">
                             <label for="title">Chapter</label>
                             <input name="title" value="{{ $item->title }}"
-                                id="title"
-                                type="text"
-                                class="form-control"
-                                minlength="3"
-                                required>
+                                   id="title"
+                                   type="text"
+                                   class="form-control"
+                                   minlength="3"
+                                   required>
                         </div>
 
                         <div class="form-group">
                             <label for="slug">Slug</label>
                             <input name="slug" value="{{ $item->slug }}"
-                                id="slug"
-                                type="text"
-                                class="form-control">
+                                   id="slug"
+                                   type="text"
+                                   class="form-control">
                         </div>
 
                         <div class="form-group">
                             <label for="parent_id">Parent</label>
                             <select name="parent_id"
-                                id="parent_id"
-                                class="form-control"
-                                placeholder="Choose category"
-                                required>
+                                    id="parent_id"
+                                    class="form-control"
+                                    placeholder="Choose category"
+                                    required>
                                 @foreach($categoryList as $categoryOption)
                                     <option value="{{ $categoryOption->id }}"
                                             @if($categoryOption->id == $item->parent_id) selected @endif>
@@ -51,10 +51,10 @@
                         <div class="form-group">
                             <label for="description">Description</label>
                             <textarea name="description"
-                                id="description"
-                                class="form-control"
-                                rows="3">
-                                {{ $item->description }}
+                                      id="description"
+                                      class="form-control"
+                                      rows="3">
+                                {{ old('description', $item->description)}}
                             </textarea>
                         </div>
                     </div>
