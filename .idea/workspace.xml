@@ -4,10 +4,8 @@
     <list default="true" id="8b6c450f-05cd-4206-87b4-63dc8142184b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Blog/Admin/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Blog/Admin/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blog/admin/category/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/admin/categories/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blog/admin/category/includes/item_edit_add_col.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/admin/categories/includes/item_edit_add_col.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blog/admin/category/includes/item_edit_main_col.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/admin/categories/includes/item_edit_main_col.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blog/admin/category/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/admin/categories/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/BlogCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/BlogCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/blog/admin/categories/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/blog/admin/categories/edit.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,6 +23,20 @@
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -120,6 +132,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="editor.config.ad.shown" value="true" />
@@ -176,7 +189,7 @@
       <workItem from="1565544651134" duration="1036000" />
       <workItem from="1565545717218" duration="4716000" />
       <workItem from="1565601165095" duration="597000" />
-      <workItem from="1565706634147" duration="7532000" />
+      <workItem from="1565706634147" duration="10052000" />
     </task>
     <servers />
   </component>
@@ -227,5 +240,7 @@
     <MESSAGE value="lessons 12-13 admin category controller" />
     <MESSAGE value="lessons 9-10 guest controller" />
     <MESSAGE value="lesson 14 category view" />
+    <MESSAGE value="lesson 18 update method" />
+    <MESSAGE value="lesson 17 additional edit templates" />
   </component>
 </project>
