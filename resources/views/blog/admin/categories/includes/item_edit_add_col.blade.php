@@ -16,7 +16,7 @@
             <div class="card">
                 <div class="card-body">
                     <ul class="list-unstyled">
-                        <li>ID: {{ $item->id -1 }}</li>
+                        <li>ID: {{ $item->id }}</li>
                     </ul>
                 </div>
             </div>

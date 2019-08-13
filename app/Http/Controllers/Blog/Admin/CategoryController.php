@@ -80,8 +80,7 @@ class CategoryController extends BaseController
         if ($result) {
             return redirect()
                 ->route('blog.admin.categories.edit', $item->id)
-                ->with(['success' => 'Successful saved'])
-                ->withInput();
+                ->with(['success' => 'Successful saved']);
         } else {
             return back()
                 ->withErrors(['msg' => "Error during saving data"])

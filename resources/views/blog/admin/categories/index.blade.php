@@ -20,7 +20,7 @@
                             <tbody>
                             @foreach($paginator as $item)
                                 <tr>
-                                    <td>{{ $item->id -1}}</td>
+                                    <td>{{ $item->id }}</td>
                                     <td>
                                         <a href="{{ route('blog.admin.categories.edit', $item->id) }}">
                                             {{ $item->title }}
