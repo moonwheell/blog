@@ -52,9 +52,9 @@ class CategoryController extends BaseController
     public function edit($id)
     {
         $item = BlogCategory::findOrFail($id);
-        $categoryLIst = BlogCategory::all();
+        $categoryList = BlogCategory::all();
 
-        return view('blog.admin.category.edit', compact('item', 'categoryLIst'));
+        return view('blog.admin.category.edit', compact('item', 'categoryList'));
     }
 
     /**

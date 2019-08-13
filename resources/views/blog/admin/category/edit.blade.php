@@ -2,7 +2,7 @@
 
 @section('content')
     @php /** @var \App\Models\BlogCategory $item*/@endphp
-    <from method="POST" action="{{ route('blog.admin.categories.update', $item->id) }}">
+    <form method="POST" action="{{ route('blog.admin.categories.update', $item->id) }}">
         @method('PATCH')
         @csrf
         <div class="container">
@@ -11,9 +11,9 @@
                     @include('blog.admin.category.includes.item_edit_main_col')
                 </div>
                 <div class="col-md-3">
-                    @include('blog.blog.admin.category.includes.item_edit_add_col')
+                    @include('blog.admin.category.includes.item_edit_add_col')
                 </div>
             </div>
         </div>
-    </from>
+    </form>
 @endsection
