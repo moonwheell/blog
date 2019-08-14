@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Blog\Admin;
 
+use App\Http\Requests\BlogCategoryUpdateRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Blog\BaseController;
 use App\Models\BlogCategory;
-use Illuminate\Support\Facades\DB;
 
 class CategoryController extends BaseController
 {
@@ -59,27 +59,13 @@ class CategoryController extends BaseController
     }
 
     /**
-     * @param Request $request
+     * @param BlogCategoryUpdateRequest $request
      * @param $id
      *
      * @return \Illuminate\Http\RedirectResponse
-     *
-     * @throws \Illuminate\Validation\ValidationException
-     *
      */
-    public function update(Request $request, $id)
+    public function update(BlogCategoryUpdateRequest $request, $id)
     {
-        $rules = [
-            'title' => 'required|min:5|max:200',
-            'slug' => 'max:200',
-            'description' => 'string|min:3|max:500',
-            'parent_id' => 'required|integer|exists:blog_categories,id',
-        ];
-
-        $validatedData = $this->validate($request, $rules);
-
-        dd($validatedData);
-
         $item = BlogCategory::find($id);
         if (!$item)
             return back()

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8b6c450f-05cd-4206-87b4-63dc8142184b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/BlogCategoryUpdateRequest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Blog/Admin/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Blog/Admin/CategoryController.php" afterDir="false" />
     </list>
@@ -187,7 +188,8 @@
       <workItem from="1565544651134" duration="1036000" />
       <workItem from="1565545717218" duration="4716000" />
       <workItem from="1565601165095" duration="597000" />
-      <workItem from="1565706634147" duration="12143000" />
+      <workItem from="1565706634147" duration="13137000" />
+      <workItem from="1565793643465" duration="1630000" />
     </task>
     <servers />
   </component>
