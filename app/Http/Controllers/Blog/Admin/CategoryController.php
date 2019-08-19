@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Blog\Admin;
 
 use App\Http\Requests\BlogCategoryUpdateRequest;
 use App\Http\Requests\BlogCategoryCreateRequest;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Blog\BaseController;
 use App\Models\BlogCategory;
 
@@ -37,6 +36,7 @@ class CategoryController extends BaseController
 
     /**
      * @param BlogCategoryCreateRequest $request
+     *
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(BlogCategoryCreateRequest $request)
@@ -91,7 +91,10 @@ class CategoryController extends BaseController
                 ->withInput(); //return back inputted data
 
         $data = $request->all();
-        $result = $item->fill($data)->save();
+        if(!$data['slug'])
+            $data['slug'] = str_slug($data['title']);
+        /** @var \App\Models\BlogCategory $item*/
+        $result = $item->update($data);
 
         if ($result) {
             return redirect()
