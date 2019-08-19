@@ -105,3 +105,11 @@ Homestead.json
 /.vagrant
 .phpunit.result.cache
 
+'.idea' 
+/.idea/inspectionProfiles/Project_Default.xml
+/.idea/blog.iml
+/.idea/laravel-plugin.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/php.xml
+/.idea/vcs.xml
