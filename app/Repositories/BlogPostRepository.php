@@ -15,4 +15,29 @@ class BlogPostRepository extends CoreRepository
     {
         return Model::class;
     }
+
+    /**
+     * @param int $qty
+     *
+     * @return mixed
+     */
+    public function getAllWithPaginate($qty = 25)
+    {
+        $columns = [
+            'id',
+            'title',
+            'slug',
+            'is_published',
+            'published_at',
+            'user_id',
+            'category_id',
+        ];
+
+        $result = $this->startConditions()
+            ->select($columns)
+            ->orderBy('id', 'DESC')
+            ->paginate($qty);
+
+        return $result;
+    }
 }
