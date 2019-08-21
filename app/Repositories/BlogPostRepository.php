@@ -3,19 +3,9 @@
 namespace App\Repositories;
 
 use App\Models\BlogPost as Model;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Support\Facades\DB as DB;
 
 class BlogPostRepository extends CoreRepository
 {
-    /**
-     * @return string
-     */
-    protected function getModelClass()
-    {
-        return Model::class;
-    }
-
     /**
      * @param int $qty
      *
@@ -32,12 +22,24 @@ class BlogPostRepository extends CoreRepository
             'user_id',
             'category_id',
         ];
-
         $result = $this->startConditions()
             ->select($columns)
             ->orderBy('id', 'DESC')
+            ->with([
+                'category' => function ($query) {
+                    $query->select(['id', 'title']);
+                }
+            ])
             ->paginate($qty);
 
         return $result;
+    }
+
+    /**
+     * @return string
+     */
+    protected function getModelClass()
+    {
+        return Model::class;
     }
 }
