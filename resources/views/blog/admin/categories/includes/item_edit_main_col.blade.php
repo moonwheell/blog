@@ -15,7 +15,7 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="maindata" role="tabpanel">
                         <div class="form-group">
-                            <label for="title">Chapter</label>
+                            <label for="title">Title</label>
                             <input name="title" value="{{ $item->title }}"
                                    id="title"
                                    type="text"
