@@ -16,10 +16,10 @@
                 <div class="card-subtitle mb-2 text-muted"></div>
                 <ul class="nav nav-tabs" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" data-togle="tab" href="#maindata" role="tab">Main data</a>
+                        <a class="nav-link active" data-toggle="tab" href="#maindata" role="tab">Main data</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-togle="tab" href="#adddata" role="tab">Additional data</a>
+                        <a class="nav-link" data-toggle="tab" href="#adddata" role="tab">Additional data</a>
                     </li>
                 </ul>
                 <br>
@@ -72,7 +72,7 @@
                             <textarea name="expert"
                                       id="expert"
                                       class="form-control"
-                                      rows="3">{{ old('expert', $item->expert)}}</textarea>
+                                      rows="3">{{ old('expert', $item->expert) }}</textarea>
                         </div>
 
                         <div class="form-check">
@@ -83,7 +83,7 @@
                             <input name="is_published"
                                    type="checkbox"
                                    class="form-check-input"
-                                   value="{{ $item->is_published }}"
+                                   value="1"
                                    @if($item->is_published)
                                    checked="checked"
                                    @endif
@@ -96,16 +96,3 @@
         </div>
     </div>
 </div>
-
-{{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>--}}
-{{--<script>--}}
-{{--    $(document).ready(function(e){--}}
-{{--        console.log('document');--}}
-{{--        let active;--}}
-{{--        $(".nav-link").click(function(){--}}
-{{--            console.log('click');--}}
-{{--            active =  $(".nav-link").attr('class');--}}
-{{--            console.log(active);--}}
-{{--        });--}}
-{{--    });--}}
-{{--</script>--}}

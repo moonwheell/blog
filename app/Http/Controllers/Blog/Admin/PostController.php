@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Blog\Admin;
 
-use App\Http\Requests\BlogCategoryCreateRequest;
-use App\Http\Requests\BlogCategoryUpdateRequest;
+//use App\Http\Requests\BlogPostCreateRequest;
+use App\Http\Requests\BlogPostUpdateRequest;
 use App\Models\BlogPost;
 use App\Repositories\BlogPostRepository;
 use App\Repositories\BlogCategoryRepository;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PostController extends BaseController
@@ -96,13 +97,39 @@ class PostController extends BaseController
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param BlogPostUpdateRequest $request
+     * @param int $id
+     *
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(BlogPostUpdateRequest $request, $id)
     {
-        dd(__METHOD__, $id, $request->all());
+        $item = $this->blogPostRepository->getEdit($id);
+
+        if (!$item)
+            return back()
+                ->withErrors(['msg' => "No such entity with id=[{$id}]"])
+                ->withInput(); //return back inputted data
+
+        $data = $request->all();
+
+        if(!$data['slug'])
+            $data['slug'] = str_slug($data['title']);
+
+        if(empty($item->published_at && $data['is_published']))
+            $data['published_at'] = Carbon::now();
+
+        $result = $item->update($data);
+
+        if ($result) {
+            return redirect()
+                ->route('blog.admin.posts.edit', $item->id)
+                ->with(['success' => 'Successful saved']);
+        } else {
+            return back()
+                ->withErrors(['msg' => "Error during saving data"])
+                ->withInput();
+        }
     }
 
     /**
