@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers\Blog\Admin;
 
-//use App\Http\Requests\BlogPostCreateRequest;
+use App\Http\Requests\BlogPostCreateRequest;
 use App\Http\Requests\BlogPostUpdateRequest;
 use App\Models\BlogPost;
-use App\Repositories\BlogPostRepository;
 use App\Repositories\BlogCategoryRepository;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
+use App\Repositories\BlogPostRepository;
 
 class PostController extends BaseController
 {
@@ -52,35 +50,41 @@ class PostController extends BaseController
      */
     public function create()
     {
-        dd(__METHOD__);
+        $item = new BlogPost();
+        $categoryList = $this->blogCategoryRepository->getForComboBox();
+
+        return view('blog.admin.posts.edit',
+            compact('item', 'categoryList'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        dd(__METHOD__, $request->all());
-    }
-
-    /**
-     * Display the specified resource.
+     * @param BlogPostCreateRequest $request
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function show($id)
+    public function store(BlogPostCreateRequest $request)
     {
-        dd(__METHOD__, $id);
+        $data = $request->input();
+        try {
+            $item = new BlogPost($data);//Todo have to create Builder
+            $item->save();//Todo replace to repository
+            return redirect()
+                ->route('blog.admin.posts.edit', $item->id)
+                ->with(['success' => 'Successful saved']);
+        } catch (\Exception $e) {
+            return back()
+                ->withErrors(['msg' => "{$e->getMessage()}"])
+                ->withInput();
+        }
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -130,6 +134,7 @@ class PostController extends BaseController
      * Remove the specified resource from storage.
      *
      * @param  int  $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
