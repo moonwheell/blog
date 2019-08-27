@@ -27,7 +27,10 @@ class BlogPostRepository extends CoreRepository
             ->select($columns)
             ->orderBy('id', 'DESC')
             ->with([
-                'category:id,title',
+                'category' => function ($query) {
+                    $query->select(['id', 'title']);
+                },
+//                'category:id,title',
                 'user:id,name'
             ])
             ->paginate($qty);
