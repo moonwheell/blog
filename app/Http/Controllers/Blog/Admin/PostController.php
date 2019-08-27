@@ -115,17 +115,15 @@ class PostController extends BaseController
                 ->withErrors(['msg' => "No such entity with id=[{$id}]"])
                 ->withInput(); //return back inputted data
 
-        $data = $request->all();
-
-        $result = $item->update($data);
-
-        if ($result) {
+        $dataRequest = $request->all();
+        try {
+            $item->update($dataRequest);
             return redirect()
                 ->route('blog.admin.posts.edit', $item->id)
                 ->with(['success' => 'Successful saved']);
-        } else {
+        } catch (\Exception $e) {
             return back()
-                ->withErrors(['msg' => "Error during saving data"])
+                ->withErrors(['msg' => "{$e->getMessage()}"])
                 ->withInput();
         }
     }

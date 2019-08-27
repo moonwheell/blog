@@ -3,9 +3,45 @@
 namespace App\Observers;
 
 use App\Models\BlogCategory;
+use Illuminate\Support\Str;
 
 class BlogCategoryObserver
 {
+    /**
+     * Handle the blog post "created" event.
+     *
+     * @param BlogCategory $blogCategory
+     *
+     * @return void
+     */
+    public function creating(BlogCategory $blogCategory)
+    {
+        $this->setSlug($blogCategory);
+    }
+
+    /**
+     * Handle the blog post "updating" event.
+     *
+     * @param BlogCategory $blogCategory
+     *
+     * @return void
+     */
+    public function updating(BlogCategory $blogCategory)
+    {
+        $this->setSlug($blogCategory);
+    }
+
+    /**
+     * @param BlogCategory $blogCategory
+     *
+     * @return void
+     */
+    protected function setSlug(BlogCategory $blogCategory)
+    {
+        if (!$blogCategory->slug)
+            $blogCategory->slug = Str::slug($blogCategory->title);
+    }
+
     /**
      * Handle the blog category "created" event.
      *

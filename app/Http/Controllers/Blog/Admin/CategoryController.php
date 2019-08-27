@@ -53,20 +53,16 @@ class CategoryController extends BaseController
      */
     public function store(BlogCategoryCreateRequest $request)
     {
-        $data = $request->input();
-        if(!$data['slug'])
-            $data['slug'] = str_slug($data['title']);
-
-        $item = new BlogCategory($data);
-        $item->save();
-
-        if ($item) {
+        $dataRequest = $request->input();
+        try {
+            $item = new BlogCategory($dataRequest);//Todo have to create Builder
+            $item->save();//Todo replace to repository
             return redirect()
-                ->route('blog.admin.categories.edit', [$item->id])
+                ->route('blog.admin.categories.edit', $item->id)
                 ->with(['success' => 'Successful saved']);
-        } else {
+        } catch (\Exception $e) {
             return back()
-                ->withErrors(['msg' => "Error during saving data"])
+                ->withErrors(['msg' => "{$e->getMessage()}"])
                 ->withInput();
         }
     }
@@ -97,24 +93,21 @@ class CategoryController extends BaseController
     public function update(BlogCategoryUpdateRequest $request, $id)
     {
         $item = $this->blogCategoryRepository->getEdit($id);
+
         if (!$item)
             return back()
                 ->withErrors(['msg' => "No such entity with id=[{$id}]"])
                 ->withInput(); //return back inputted data
 
-        $data = $request->all();
-        if(!$data['slug'])
-            $data['slug'] = str_slug($data['title']);
-        /** @var \App\Models\BlogCategory $item*/
-        $result = $item->update($data);
-
-        if ($result) {
+        $dataRequest = $request->input();
+        try {
+            $item->update($dataRequest);
             return redirect()
                 ->route('blog.admin.categories.edit', $item->id)
                 ->with(['success' => 'Successful saved']);
-        } else {
+        } catch (\Exception $e) {
             return back()
-                ->withErrors(['msg' => "Error during saving data"])
+                ->withErrors(['msg' => "{$e->getMessage()}"])
                 ->withInput();
         }
     }

@@ -10,6 +10,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *
  * @package App\Models
  *
+ * @property int id
+ * @property string $title
+ * @property string $slug
+ * @property string $description
+ *
  * @property-read BlogCategory $parentCategory
  * @property-read string $parentTitle
  */
@@ -61,4 +66,26 @@ class BlogCategory extends Model
     {
         return $this->id === BlogCategory::ROOT;
     }
+
+//    /**
+//     * Accessor example
+//     *
+//     * @param $value
+//     *
+//     * @return bool|false|mixed|string|string[]|null
+//     */
+//    public function getTitleAttribute($value)
+//    {
+//        return mb_strtoupper($value);
+//    }
+//
+//    /**
+//     * Mutator example
+//     *
+//     * @param $value
+//     */
+//    public function setTitleAttribute($value)
+//    {
+//        $this->attributes['title'] = mb_strtolower($value);
+//    }
 }
