@@ -75,7 +75,7 @@ class PostController extends BaseController
                 ->with(['success' => 'Successful saved']);
         } catch (\Exception $e) {
             return back()
-                ->withErrors(['msg' => "{$e->getMessage()}"])
+                ->withErrors(['msg' => "Error during saving.  {$e->getMessage()}"])
                 ->withInput();
         }
     }
@@ -120,10 +120,10 @@ class PostController extends BaseController
             $item->update($dataRequest);
             return redirect()
                 ->route('blog.admin.posts.edit', $item->id)
-                ->with(['success' => 'Successful saved']);
+                ->with(['success' => "Entity [$item->id] successfully removed"]);
         } catch (\Exception $e) {
             return back()
-                ->withErrors(['msg' => "{$e->getMessage()}"])
+                ->withErrors(['msg' => "Error during updating. {$e->getMessage()}"])
                 ->withInput();
         }
     }
@@ -137,6 +137,13 @@ class PostController extends BaseController
      */
     public function destroy($id)
     {
-        dd(__METHOD__, $id);
+        if (BlogPost::destroy($id)) {
+            return redirect()
+                ->route('blog.admin.posts.index')
+                ->with(['success' => "Entity [$id] successfully removed"]);
+        } else {
+            return back()
+                ->withErrors(['msg' => "Error during saving data"]);
+        }
     }
 }

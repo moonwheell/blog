@@ -2,14 +2,9 @@
 
 @section('content')
     <div class="container">
-        @if(session('success'))
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                </div>
-            </div>
-        @endif
         <div class="row justify-content-center">
             <div class="col-md-12">
+                @include('blog.admin.posts.includes.result_messages')
                 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
                     <a href="{{route('blog.admin.posts.create')}}" class="btn btn-primary">Write</a>
                 </nav>

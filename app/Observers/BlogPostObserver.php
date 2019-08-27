@@ -103,6 +103,12 @@ class BlogPostObserver
 //        dd(__METHOD__);
     }
 
+
+    public function deleting(BlogPost $blogPost)
+    {
+//      return false;
+    }
+
     /**
      * Handle the blog post "deleted" event.
      *
@@ -112,7 +118,7 @@ class BlogPostObserver
      */
     public function deleted(BlogPost $blogPost)
     {
-        //
+//        dd($blogPost);
     }
 
     /**
