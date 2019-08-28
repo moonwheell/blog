@@ -14,6 +14,9 @@ class CategoryController extends BaseController
      */
     private $blogCategoryRepository;
 
+    /**
+     * CategoryController constructor.
+     */
     public function __construct()
     {
         parent::__construct();
@@ -29,6 +32,7 @@ class CategoryController extends BaseController
     public function index()
     {
         $paginator = $this->blogCategoryRepository->getAllWithPaginate(5);
+
         return view('blog.admin.categories.index', compact('paginator'));
     }
 
@@ -54,6 +58,7 @@ class CategoryController extends BaseController
     public function store(BlogCategoryCreateRequest $request)
     {
         $dataRequest = $request->input();
+
         try {
             $item = new BlogCategory($dataRequest);//Todo have to create Builder
             $item->save();//Todo replace to repository
@@ -77,7 +82,9 @@ class CategoryController extends BaseController
     public function edit($id)
     {
         $item = $this->blogCategoryRepository->getEdit($id);
+
         if (!$item) abort(404);
+
         $categoryList = $this->blogCategoryRepository->getForComboBox();
 
         return view('blog.admin.categories.edit',

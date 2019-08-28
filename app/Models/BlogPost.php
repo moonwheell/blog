@@ -25,7 +25,6 @@ class BlogPost extends Model
 {
     use SoftDeletes;
 
-
     const UNKNOWN_USER = 1;
 
     protected $fillable =
@@ -38,6 +37,7 @@ class BlogPost extends Model
             'is_published',
             'published_at',
         ];
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
@@ -53,5 +53,4 @@ class BlogPost extends Model
     {
         return $this->belongsTo(User::class);
     }
-
 }

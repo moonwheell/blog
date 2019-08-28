@@ -67,6 +67,7 @@ class PostController extends BaseController
     public function store(BlogPostCreateRequest $request)
     {
         $data = $request->input();
+
         try {
             $item = new BlogPost($data);//Todo have to create Builder
             $item->save();//Todo replace to repository
@@ -90,6 +91,7 @@ class PostController extends BaseController
     public function edit($id)
     {
         $item = $this->blogPostRepository->getEdit($id);
+
         if (!$item) abort(404);
 
         $categoryList = $this->blogCategoryRepository->getForComboBox();
@@ -116,6 +118,7 @@ class PostController extends BaseController
                 ->withInput(); //return back inputted data
 
         $dataRequest = $request->all();
+
         try {
             $item->update($dataRequest);
             return redirect()

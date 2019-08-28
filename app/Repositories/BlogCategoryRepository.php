@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Collection;
 class BlogCategoryRepository extends CoreRepository
 {
     /**
-     * Edit category by id
+     * Get category item by id
      *
      * @param int $id
      *

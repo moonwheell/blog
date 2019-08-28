@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 class BlogPostObserver
 {
     /**
-     * Handle the blog post "created" event.
+     * Handle the blog post "creating" event.
      *
      * @param BlogPost $blogPost
      *
@@ -103,7 +103,13 @@ class BlogPostObserver
 //        dd(__METHOD__);
     }
 
-
+    /**
+     * Handle the blog post "deleting" event.
+     *
+     * @param BlogPost $blogPost
+     *
+     * @return void
+     */
     public function deleting(BlogPost $blogPost)
     {
 //      return false;
