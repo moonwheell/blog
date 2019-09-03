@@ -16,7 +16,6 @@ class CreateBlogPostsTable extends Migration
         Schema::create('blog_posts', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->biginteger('category_id')->unsigned();
             $table->biginteger('user_id')->unsigned();
 
             $table->string('slug')->unique();
@@ -34,8 +33,7 @@ class CreateBlogPostsTable extends Migration
             $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('category_id')->references('id')
-                ->on('blog_categories');
+
             $table->index('is_published');
         });
     }
@@ -47,6 +45,9 @@ class CreateBlogPostsTable extends Migration
      */
     public function down()
     {
+        Schema::table('blog_posts', function (Blueprint $table) {
+            $table->dropForeign('blog_posts_user_id_foreign');
+        });
         Schema::dropIfExists('blog_posts');
     }
 }

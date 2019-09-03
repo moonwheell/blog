@@ -43,6 +43,14 @@ class BlogCategory extends Model
     }
 
     /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function posts()
+    {
+        return $this->belongsToMany(BlogPost::class, 'blog_category_post', 'category_id','post_id');
+    }
+
+    /**
      * Get parent category title (accessor)
      *
      * @return string

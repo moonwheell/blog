@@ -39,11 +39,11 @@ class BlogPost extends Model
         ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo(BlogCategory::class);
+        return $this->belongsToMany(BlogCategory::class, 'blog_category_post', 'post_id','category_id');
     }
 
     /**

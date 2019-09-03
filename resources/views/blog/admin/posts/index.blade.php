@@ -26,7 +26,14 @@
                                 <tr @if(!$post->is_published) style="background-color: #ccc;" @endif>
                                     <td>{{ $post->id }}</td>
                                     <td>{{ $post->user->name }}</td>
-                                    <td>{{ $post->category->title }}</td>
+{{--                                    <td>{{ $post->categories[0]->title ?? 'empty' }}</td>--}}
+                                    <td>@if (isset($post->categories))
+                                            @foreach($post->categories as $category)
+                                               {{$category->title}} <br/>
+                                            @endforeach
+                                        @else <p>Root</p>
+                                        @endif
+                                    </td>
                                     <td>
                                         <a href="{{ route('blog.admin.posts.edit', $post->id) }}">
                                             {{ $post->title }}
