@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Models\BlogPost as Model;
-use Illuminate\Support\Facades\DB;
 
 class BlogPostRepository extends CoreRepository
 {
@@ -14,13 +13,6 @@ class BlogPostRepository extends CoreRepository
      */
     public function getAllWithPaginate($qty = 25)
     {
-//        $result = DB::table('blog_categories')
-//            ->select('blog_categories.id','blog_categories.title','blog_posts.title')
-//            ->join('blog_category_post', 'blog_categories.id', '=', 'blog_category_post.category_id')
-//            ->join('blog_posts', 'blog_category_post.post_id', '=', 'blog_posts.id')
-//            ->get();
-//dd($result);
-
         $columns = [
             'id',
             'title',
@@ -28,7 +20,6 @@ class BlogPostRepository extends CoreRepository
             'is_published',
             'published_at',
             'user_id',
-//            'category_id',
         ];
 
         $result = $this->startConditions()
@@ -38,14 +29,10 @@ class BlogPostRepository extends CoreRepository
                 'categories' => function ($query) {
                     $query->select(['blog_categories.id', 'blog_categories.title']);
                 },
-//                'categories:id,title',
                 'user:id,name'
             ])
-//            ->join()
-            ->paginate($qty)
-//        ->get()
-        ;
-//dd($result);
+            ->paginate($qty);
+
         return $result;
     }
 
